@@ -29,6 +29,8 @@ const defaultConfig = {
   font: 'Arial',
   lineHeight: null,
   justify: false,
+  strokeColor: null,
+  strokeWidth: null,
 }
 
 function drawText(
@@ -99,6 +101,15 @@ function drawText(
   textArray.forEach((txtline) => {
     txtline = txtline.trim()
     ctx.fillText(txtline, textAnchor, txtY)
+
+    if (config.strokeWidth) {
+      ctx.save()
+      ctx.strokeStyle = config.strokeColor ?? '#000000'
+      ctx.lineWidth = config.strokeWidth
+      ctx.strokeText(txtline, textAnchor, txtY)
+      ctx.restore()
+    }
+
     txtY += charHeight
   })
 
