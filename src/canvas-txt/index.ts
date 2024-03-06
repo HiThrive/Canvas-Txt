@@ -103,11 +103,9 @@ function drawText(
     ctx.fillText(txtline, textAnchor, txtY)
 
     if (config.strokeWidth) {
-      ctx.save()
       ctx.strokeStyle = config.strokeColor ?? '#000000'
       ctx.lineWidth = config.strokeWidth
       ctx.strokeText(txtline, textAnchor, txtY)
-      ctx.restore()
     }
 
     txtY += charHeight
