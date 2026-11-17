@@ -7,11 +7,10 @@
   ],
   "scripts": {
     "dev": "vite serve --config config/vite.config.docs.ts",
-    "dev:node": "vite-node  ./src/node-test.ts",
-    "build": "tsc && vite build --emptyOutDir --config config/vite.config.ts && yarn build:dts",
+    "build": "tsc && vite build --emptyOutDir --config config/vite.config.ts && npm run build:dts",
     "build:dts": "tsup src/canvas-txt/index.ts --dts-only && mv dist/index.d.ts dist/canvas-txt.d.ts",
     "build:docs": "tsc && vite build --config config/vite.config.docs.ts",
-    "prepare": "yarn build"
+    "prepare": "npm run build"
   },
   "main": "./dist/canvas-txt.umd.js",
   "module": "./dist/canvas-txt.mjs",
@@ -42,7 +41,6 @@
     "es6"
   ],
   "devDependencies": {
-    "canvas": "^2.11.2",
     "tsup": "^7.2.0",
     "typescript": "^4.7.4",
     "vite": "^4.4.4",
